@@ -60,6 +60,7 @@ server <- function(input, output) {
       scale_fill_brewer(palette = "Blues")
   })
   output$pointplot <-renderPlotly({
+    # This plot might be a bit too dense, it takes a VERY long time to load. I only took off a few points here. In the future use something like sample() to keep the number of points down.
     ggplotly(
       ggplot(data = diamonds, aes(x = carat, y = price, color = as.factor(color))) + 
         geom_point() +
